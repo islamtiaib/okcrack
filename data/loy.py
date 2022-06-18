@@ -14,7 +14,7 @@ import time, os
 
 from rich import print as prints
 from rich.panel import Panel
-from src import cok
+from src import cok as yy
 
 O = '\x1b[1;96m' # BIRU MUDA
 N = '\x1b[0m'    # WARNA MATI
@@ -30,7 +30,7 @@ kuning = '[#FFFF00]'
 class Cek_Crack:
     def __init__(self):
         self.hsl_cp, self.hsl_ok = [], []
-        self.xa, self.xx = 0, {}
+        self.hasil()
     
     def hasil(self):
         prints(Panel(f"""[{biru_m}01{hapus}] check hasil crack ok
@@ -49,6 +49,8 @@ class Cek_Crack:
             if len(self.hsl_ok)==0:
                 prints(Panel(f"🙁 {merah}tidak ada file yang mau di cek{hapus}"));exit()
             else:
+                self.xa = {}
+                self.xx = 0
                 prints(Panel(f"       HASIL {hijau}OK {hapus}YANG TERSIMPAN DI FOLDER ANDA"))
                 for ini in self.hsl_ok:
                     try:fi1 = open(f"results/OK/{ini}").readlines()
@@ -76,7 +78,7 @@ class Cek_Crack:
                     titid  = kontol.replace(" [✓] ","  \x1b[0m[\x1b[1;92m✓\x1b[0m]\x1b[1;92m ")
                     print(f"{titid}{N}");time.sleep(0.03)
                 prints(Panel(f"             {hijau}PROSES MENGECEK HASIL SELESAI{hapus}"))
-                input(f"   [ {O}KEMBALI{N} ] ");cok.Brute().moch_yayan()
+                input(f"   [ {O}KEMBALI{N} ] ");yy.Brute()
         elif xz in["2", "02"]:
             try:
                 xxx = os.listdir("results/CP")
@@ -86,6 +88,8 @@ class Cek_Crack:
             if len(self.hsl_cp)==0:
                 prints(Panel(f"🙁 {merah}tidak ada file yang mau di cek{hapus}"));exit()
             else:
+                self.xa = {}
+                self.xx = 0
                 prints(Panel(f"       HASIL {kuning}CP {hapus}YANG TERSIMPAN DI FOLDER ANDA"))
                 for tod in self.hsl_cp:
                     try:fi2 = open(f"results/CP/{tod}").readlines()
@@ -113,7 +117,7 @@ class Cek_Crack:
                     titid  = kontol.replace(" [×] ", "  \x1b[0m[\x1b[1;93m×\x1b[0m]\x1b[1;93m ")
                     print(f"{titid}{N}");time.sleep(0.03)
                 prints(Panel(f"             {kuning}PROSES MENGECEK HASIL SELESAI{hapus}"))
-                input(f"   [ {O}KEMBALI{N} ] ");cok.Brute().moch_yayan()
+                input(f"   [ {O}KEMBALI{N} ] ");yy.Brute()
         elif xz in["3","03"]:
             prints(Panel(f"""[{biru_m}01{hapus}] hapus hasil ok
 [{biru_m}02{hapus}] hapus hasil cp
@@ -136,6 +140,6 @@ class Cek_Crack:
             else:
                 print("");prints(Panel(f"😡 memu [bold red]{pil}[/] tidak ada, cek menu nya!"));time.sleep(3);self.hasil()
         elif xz in["4","04"]:
-            cok.Brute().moch_yayan()
+            yy.Brute()
         else:
             print("");prints(Panel(f"😡 memu [bold red]{xz}[/] tidak ada, cek menu nya!"));time.sleep(3);self.hasil()
