@@ -10,12 +10,15 @@
 
 ############# DON'T REMOVE THIS FUNCTIONS #############
 
-
-import sys, os, random
+import sys, os, datetime, random
 
 #---- MODULE RICH IN PYTHON -------
 from rich import print as prints
+from datetime import datetime
 from rich.panel import Panel
+
+reed = "[bold red]"
+blue = "[bold blue]"
 
 class Logo:
 
@@ -29,11 +32,20 @@ class Logo:
         else:
             try:os.system("clear")
             except:pass
-
-    def log(self):
         WAR = random.choice(["[deep_pink3]","[green]","[cyan]","[blue]"])
-        prints(Panel(f"""{WAR}  ▄▄▄▄· ▄▄▄  ▄• ▄▌▄▄▄▄▄▄▄▄ .    ·▄▄▄▄▄▄▄· 
-  ▐█ ▀█▪▀▄ █·█▪██▌•██  ▀▄.▀·    ▐▄▄·▐█ ▀█▪
-  ▐█▀▀█▄▐▀▀▄ █▌▐█▌ ▐█.▪▐▀▀▪▄    ██▪ ▐█▀▀█▄
-  ██▄▪▐█▐█•█▌▐█▄█▌ ▐█▌·▐█▄▄▌    ██▌.██▄▪▐█
-  ·▀▀▀▀ .▀  ▀ ▀▀▀  ▀▀▀  ▀▀▀     ▀▀▀ ·▀▀▀▀  {WAR}version: 0.4[/]"""))
+        prints(Panel(f"""{WAR}  
+    ██████╗██╗  ██╗██╗███╗   ██╗██████╗  █████╗ 
+   ██╔════╝██║  ██║██║████╗  ██║██╔══██╗██╔══██╗
+   ██║     ███████║██║██╔██╗ ██║██║  ██║███████║
+   ██║     ██╔══██║██║██║╚██╗██║██║  ██║██╔══██║
+   ╚██████╗██║  ██║██║██║ ╚████║██████╔╝██║  ██║
+    ╚═════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝
+ {WAR}version: 0.4[/]"""))
+    def waktu(self):
+        now = datetime.now()
+        hours = now.hour
+        if 4 <= hours < 12:timenow = "good morning"
+        elif 12 <= hours < 15:timenow = "good afternoog"
+        elif 15 <= hours < 18:timenow = "good evening"
+        else:timenow = "good night"
+        return timenow
